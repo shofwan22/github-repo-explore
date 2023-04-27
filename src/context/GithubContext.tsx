@@ -2,13 +2,7 @@ import axios from 'axios';
 import { useState, createContext, useContext } from 'react';
 import { User } from '../types/user.types';
 import { Repository } from '../types/repo.types';
-
-interface GithubContextValue {
-  query: string;
-  users: User[];
-  repositories: Repository[];
-  searchUsers: (query: string) => Promise<void>;
-}
+import { GithubContextValue } from '../types/github.types';
 
 type GithubProviderProps = {
   children: React.ReactNode;
