@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useGithub } from '../context/GithubContext';
 
 const InputSearch = () => {
+  const { searchUsers } = useGithub();
   const [query, setQuery] = useState('');
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    await searchUsers(query);
   };
   return (
     <form onSubmit={handleSearch}>
