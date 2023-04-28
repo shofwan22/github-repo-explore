@@ -12,8 +12,11 @@ describe('InputSearch', () => {
   const searchUsers = jest.fn();
 
   beforeEach(() => {
-    useGithub.mockReturnValue({
+    (useGithub as jest.Mock<GithubContextValue>).mockReturnValue({
       searchUsers,
+      query: '',
+      users: [],
+      repositories: [],
     });
   });
 
